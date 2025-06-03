@@ -1,0 +1,63 @@
+/* Dark Theme Variables */
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent-primary: #6c5ce7;
+  --accent-secondary: #00cec9;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --card-bg: #252525;
+  --card-hover: #333333;
+}
+
+/* Theme Classes */
+.dark-theme {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.card-dark {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.card-dark:hover {
+  background-color: var(--card-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.text-accent {
+  color: var(--accent-primary);
+}
+
+.bg-accent {
+  background-color: var(--accent-primary);
+}
+
+/* Glass Morphism Effect */
+.glass-effect {
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Responsive Theme Adjustments */
+@media (max-width: 768px) {
+  .glass-effect {
+    background: var(--bg-secondary);
+    backdrop-filter: none;
+  }
+}

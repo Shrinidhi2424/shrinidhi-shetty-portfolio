@@ -1,0 +1,81 @@
+:root {
+  --primary: #6c5ce7;
+  --primary-dark: #5649c0;
+  --secondary: #00cec9;
+  --dark: #2d3436;
+  --darker: #1e272e;
+  --light: #f5f6fa;
+  --gray: #636e72;
+  --success: #00b894;
+  --error: #d63031;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--darker);
+  color: var(--light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background-color: var(--primary);
+  color: white;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.secondary-btn:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 0;
+  }
+}
