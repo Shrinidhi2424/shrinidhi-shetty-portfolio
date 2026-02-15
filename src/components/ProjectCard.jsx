@@ -1,53 +1,45 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
 
 const ProjectCard = ({ project, index }) => {
-  const cardVariants = {
-    offscreen: {
-      y: 100,
-      opacity: 0
-    },
-    onscreen: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        bounce: 0.4,
-        duration: 0.8,
-        delay: index * 0.1
-      }
-    }
-  };
-
   return (
     <motion.div
       className="project-card"
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={cardVariants}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <div className="project-image">
-        <img src={project.image} alt={project.title} />
-        <div className="project-links">
+      <div className="project-image-placeholder">
+        <FaCode style={{ fontSize: '3rem', color: 'rgba(255,255,255,0.1)' }} />
+        <div className="project-overlay">
           {project.github && (
-            <a href={project.github} target="_blank" rel="noopener noreferrer">
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link-icon" title="View Code">
               <FaGithub />
             </a>
           )}
-          {project.live && (
-            <a href={project.live} target="_blank" rel="noopener noreferrer">
+          {project.link && project.link !== "#" && (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link-icon" title="View Live">
               <FaExternalLinkAlt />
             </a>
           )}
         </div>
       </div>
+
       <div className="project-content">
         <h3>{project.title}</h3>
-        <p>{project.description}</p>
-        <div className="project-tags">
-          {project.tags.map((tag, i) => (
-            <span key={i}>{tag}</span>
+        <p className="project-description">{project.description}</p>
+
+        {/* Optional: Show detailed bullet points if space permits, or usually description is enough for card */}
+        <ul className="project-details-list">
+          {project.details.slice(0, 2).map((detail, i) => (
+            <li key={i}>{detail}</li>
+          ))}
+        </ul>
+
+        <div className="project-tech">
+          {project.tech.map((tech, i) => (
+            <span key={i} className="tech-tag">{tech}</span>
           ))}
         </div>
       </div>

@@ -1,63 +1,64 @@
-/* Dark Theme Variables */
-:root {
-  --bg-primary: #121212;
-  --bg-secondary: #1e1e1e;
-  --bg-tertiary: #2d2d2d;
-  --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-  --accent-primary: #6c5ce7;
-  --accent-secondary: #00cec9;
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --card-bg: #252525;
-  --card-hover: #333333;
+/* Modern Utilities */
+
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
 }
 
-/* Theme Classes */
-.dark-theme {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.card-dark {
-  background-color: var(--card-bg);
-  box-shadow: 0 4px 8px var(--shadow-color);
-  transition: all 0.3s ease;
-}
-
-.card-dark:hover {
-  background-color: var(--card-hover);
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px var(--shadow-color);
-}
-
-.text-accent {
-  color: var(--accent-primary);
-}
-
-.bg-accent {
-  background-color: var(--accent-primary);
-}
-
-/* Glass Morphism Effect */
-.glass-effect {
-  background: rgba(30, 30, 30, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Gradient Text */
 .gradient-text {
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  display: inline-block;
 }
 
-/* Responsive Theme Adjustments */
+.neon-text {
+  color: var(--secondary);
+  text-shadow: 0 0 10px var(--secondary-glow);
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* Animations - can be used with className directly */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
 @media (max-width: 768px) {
-  .glass-effect {
-    background: var(--bg-secondary);
-    backdrop-filter: none;
+  .section-title {
+    font-size: 2.2rem;
   }
 }
